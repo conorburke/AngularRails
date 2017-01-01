@@ -61,6 +61,7 @@
   },
   "files": [
     "./app/app.module.ts",
-    "./app/homepage.component.ts"
+    "./app/homepage.component.ts",
+    "./app/documents/documents.component.ts"
     ]
 }
