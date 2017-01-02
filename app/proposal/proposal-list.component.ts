@@ -9,13 +9,13 @@ import { Proposal } from './proposal';
 export class ProposalListComponent {
   proposalOne: Proposal = new Proposal(1, 'Kevin Burke Experiment',
     'http://portfolio.conor.com', 'Ruby on Rails', 150, 120, 15,
-    'conor@seespotgo.com'),
+    'conor@seespotgo.com');
   proposalTwo: Proposal = new Proposal(2, 'Haulr',
     'http://portfolio.conor.com', 'Ruby on Rails', 150, 120, 15,
-    'conor@seespotgo.com'),
+    'conor@seespotgo.com');
   proposalThree: Proposal = new Proposal(3, 'Haulr Experiment',
     'http://portfolio.conor.com', 'Ruby on Rails', 150, 120, 15,
-    'conor@seespotgo.com'),
+    'conor@seespotgo.com');
 
   proposals: Proposal[] = [
     this.proposalOne, 
