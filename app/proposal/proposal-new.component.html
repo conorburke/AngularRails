@@ -1,106 +1,123 @@
-<h1>create a proposal</h1>
-
-<div>
-  <form #proposalForm="ngForm">
-    <div class="form-group">
-      <label for="customer">Customer Name</label>
-      <input type="text"  
-        id="customer"
-        placeholder="SpaceX"
-        required
-        name="customer"
-        #customer="ngModel" 
-        [(ngModel)]="proposal.customer"
-      >
-      <div [hidden]="customer.valid || customer.pristine">
-      Customer name is required
+<div class="card container form-container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Create Proposal</h1>
+      <div>
+        <form #proposalForm="ngForm">
+          <div class="form-group">
+            <label for="customer">Customer Name</label>
+            <input type="text"
+              class="form-control"  
+              id="customer"
+              placeholder="SpaceX"
+              required
+              name="customer"
+              #customer="ngModel" 
+              [(ngModel)]="proposal.customer"
+            >
+            <div [hidden]="customer.valid || customer.pristine" class="alert alert-danger">
+            Customer name is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="portfolio_url">Portfolio Name</label>
+            <input type="text"  
+              class="form-control" 
+              id="portfolio_url"
+              required
+              name="portfolio_url"
+              #portfolio_url="ngModel" 
+              [(ngModel)]="proposal.portfolio_url"
+            >
+            <div [hidden]="portfolio_url.valid || portfolio_url.pristine" class="alert alert-danger">
+            portfolio url  is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="tools">Tools</label>
+            <input type="text"  
+              class="form-control" 
+              id="tools"
+              placeholder="Ruby on Rails"
+              required
+              name="tools"
+              #tools="ngModel" 
+              [(ngModel)]="proposal.tools"
+            >
+            <div [hidden]="tools.valid || tools.pristine" class="alert alert-danger">
+            Tools are is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="estimated_hours">Estimated Hours</label>
+            <input type="number"  
+              class="form-control" 
+              id="estimated_hours"
+              required
+              name="estimated_hours"
+              #estimated_hours="ngModel" 
+              [(ngModel)]="proposal.estimated_hours"
+            >
+            <div [hidden]="estimated_hours.valid || estimated_hours.pristine" class="alert alert-danger">
+            Estimated hours is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="hourly_rate">Hourly Rate</label>
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input type="number"
+                class="form-control"   
+                id="hourly_rate"
+                required
+                name="hourly_rate"
+                #hourly_rate="ngModel" 
+                [(ngModel)]="proposal.hourly_rate"
+              >
+            </div>
+            <div [hidden]="hourly_rate.valid || hourly_rate.pristine" class="alert alert-danger">
+            Hourly rate is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="weeks_to_complete">Weeks to Complete</label>
+            <input type="number"  
+              class="form-control" 
+              id="weeks_to_complete"
+              required
+              name="weeks_to_complete"
+              #weeks_to_complete="ngModel" 
+              [(ngModel)]="proposal.weeks_to_complete"
+            >
+            <div [hidden]="weeks_to_complete.valid || weeks_to_complete.pristine" class="alert alert-danger">
+            Weeks to complete is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="client_email">Email</label>
+            <input type="email"  
+              class="form-control" 
+              id="client_email"
+              required
+              name="client_email"
+              #client_email="ngModel" 
+              [(ngModel)]="proposal.client_email"
+            >
+          </div>
+        </form>
       </div>
     </div>
-    <div class="form-group">
-      <label for="portfolio_url">Portfolio Name</label>
-      <input type="text"  
-        id="portfolio_url"
-        required
-        name="portfolio_url"
-        #portfolio_url="ngModel" 
-        [(ngModel)]="proposal.portfolio_url"
-      >
-      <div [hidden]="portfolio_url.valid || portfolio_url.pristine">
-      portfolio url  is required
+    <div class="col-md-6">
+      <div>
+       <p> Hi {{ proposal.customer }}, </p>
+       <p> I will be utilizing {{ proposal.tools }} </p>
+       <p> The project should take {{ proposal.weeks_to_complete }} weeks and {{ proposal.estimated_hours }} hours of total development time at a rate of {{ proposal.hourly_rate | currency:'USD':true:'.0'}}/hour.  The total will be {{ proposal.hourly_rate * proposal.estimated_hours | currency:'USD':true:'.0'}}</p>
+       <p>You can see my work <a href="{{proposal.portfolio_url}}">here</a></p>
       </div>
     </div>
-    <div class="form-group">
-      <label for="tools">Tools</label>
-      <input type="text"  
-        id="tools"
-        placeholder="Ruby on Rails"
-        required
-        name="tools"
-        #tools="ngModel" 
-        [(ngModel)]="proposal.tools"
-      >
-      <div [hidden]="tools.valid || tools.pristine">
-      Tools are is required
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="estimated_hours">Estimated Hours</label>
-      <input type="number"  
-        id="estimated_hours"
-        required
-        name="estimated_hours"
-        #estimated_hours="ngModel" 
-        [(ngModel)]="proposal.estimated_hours"
-      >
-      <div [hidden]="estimated_hours.valid || estimated_hours.pristine">
-      Estimated hours is required
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="hourly_rate">Hourly Rate</label>
-      <input type="number"  
-        id="hourly_rate"
-        required
-        name="hourly_rate"
-        #hourly_rate="ngModel" 
-        [(ngModel)]="proposal.hourly_rate"
-      >
-      <div [hidden]="hourly_rate.valid || hourly_rate.pristine">
-      Hourly rate is required
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="weeks_to_complete">Weeks to Complete</label>
-      <input type="number"  
-        id="weeks_to_complete"
-        required
-        name="weeks_to_complete"
-        #weeks_to_complete="ngModel" 
-        [(ngModel)]="proposal.weeks_to_complete"
-      >
-      <div [hidden]="weeks_to_complete.valid || weeks_to_complete.pristine">
-      Weeks to complete is required
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="client_email">Email</label>
-      <input type="email"  
-        id="client_email"
-        required
-        name="client_email"
-        #client_email="ngModel" 
-        [(ngModel)]="proposal.client_email"
-      >
-    </div>
-  </form>
+  </div>
 </div>
 
-<div>
- <p> Hi {{ proposal.customer }}, </p>
- <p> I will be utilizing {{ proposal.tools }} </p>
- <p> The project should take {{ proposal.weeks_to_complete }} weeks and {{ proposal.estimated_hours }} hours of total development time at a rate of ${{ proposal.hourly_rate }}/hour.  The total will be ${{ proposal.hourly_rate * proposal.estimated_hours }}</p>
- <p>You can see my work <a href="{{proposal.portfolio_url}}">here</a></p>
-</div>
 
 
 
