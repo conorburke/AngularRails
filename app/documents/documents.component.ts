@@ -8,7 +8,7 @@ import { Document } from './document';
 })
 
 export class DocumentsComponent {
-  pageTitle: string = "Document Dashboard",
+  pageTitle: string = "Document Dashboard";
 
   documents: Document[] = [
     {
