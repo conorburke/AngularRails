@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <h1>Create Proposal</h1>
       <div>
-        <form #proposalForm="ngForm">
+        <form (ngSubmit)="createProposal(proposal)" #proposalForm="ngForm">
           <div class="form-group">
             <label for="customer">Customer Name</label>
             <input type="text"
@@ -94,16 +94,22 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="client_email">Email</label>
+            <label for="client_email">Email (optional)</label>
             <input type="email"  
               class="form-control" 
               id="client_email"
-              required
               name="client_email"
               #client_email="ngModel" 
               [(ngModel)]="proposal.client_email"
             >
           </div>
+          <button type="submit"
+            class="btn btn-outline-primary btn-lg"
+            [disabled]="!proposalForm.form.valid"
+            [hidden]="submitted"
+          >
+            Create Proposal
+          </button>
         </form>
       </div>
     </div>
