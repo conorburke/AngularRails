@@ -28,5 +28,6 @@ export class ProposalShowComponent implements OnInit {
         .flatMap((params: Params) =>
           this.proposalService.getProposal(+params['id'])
         );
+    proposalRequest.subscribe(response => this.proposal = response.json());
   }
 }

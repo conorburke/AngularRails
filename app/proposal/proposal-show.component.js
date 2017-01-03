@@ -25,6 +25,7 @@ var ProposalShowComponent = (function () {
             .flatMap(function (params) {
             return _this.proposalService.getProposal(+params['id']);
         });
+        proposalRequest.subscribe(function (response) { return _this.proposal = response.json(); });
     };
     return ProposalShowComponent;
 }());
